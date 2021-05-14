@@ -9,6 +9,7 @@
     <div class="col-md-6">
         @using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
         {
+            @Html.TextBoxFor(x =>x.CategoryID,new { @type="hidden"})
             <div class="form-group" style="padding:10px">
                 @Html.Label("Kategori Adı")
                 @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })

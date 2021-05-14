@@ -1,0 +1,58 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Yazar Ekleme</h1>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("AddWriter", "AdminWriter", FormMethod.Post))
+        {
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar Adı")
+                @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterName)
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar Soyadı")
+                @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterSurName)
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar Mail")
+                @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterMail)
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar Şifresi")
+                @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterPassword)
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar Resim Linki")
+                @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterImage)
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar Hakkında")
+                @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterAbout)
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                <button class="btn btn-success" type="submit">Kaydet</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+

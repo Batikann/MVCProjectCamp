@@ -15,7 +15,11 @@ namespace MVCProjectCamp.Controllers
             var categoryCaount= c.Categories.Count().ToString();
             var heading = c.Headings.Where(x => x.Category.CategoryID == 12).Count().ToString();
             var writer = c.Writers.Where(x => x.WriterName.Contains("a") || x.WriterName.Contains("A")).Count().ToString();
-            var topHeading = (from x in c.Headings orderby x.CategoryID ascending select x.Category.CategoryName).FirstOrDefault();
+            
+            var topHeading = c.Categories.Where(u => u.CategoryID == c.Headings.GroupBy(x => x.CategoryID)
+              .OrderByDescending(x => x.Count()).Select(x => x.Key).FirstOrDefault())
+                .Select(x => x.CategoryName).FirstOrDefault();
+
             var val = (c.Categories.Where(x => x.CategoryStatus == true).Count() - c.Categories.Where(x => x.CategoryStatus == false).Count()).ToString();
             ViewBag.dgr1 = categoryCaount;
             ViewBag.dgr2 = heading;
