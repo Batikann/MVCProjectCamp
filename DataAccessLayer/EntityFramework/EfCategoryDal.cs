@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfCategoryDal:GenericRepository<Category>,ICategoryDal
+    public class EfCategoryDal:GenericRepository<Category,Context>,ICategoryDal
     {
     }
 }
