@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BusinessLayer.Abstract
 {
-    public interface IHeadingDal:IRepository<Heading>
+    public interface IHeadingService:IServiceBase<Heading>
     {
-        List<HeadingDetailDto> HeadingDetails();
+        List<HeadingDetailDto> GetHeadingDetails();
     }
 }

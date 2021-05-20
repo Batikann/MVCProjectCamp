@@ -14,7 +14,7 @@ namespace DataAccessLayer.Concrete.Repositories
         where TEntity : class, IEntity, new()
         where TContext:DbContext,new()
     {
-        
+          
         public void Delete(TEntity t)
         {
             using (TContext context = new TContext())

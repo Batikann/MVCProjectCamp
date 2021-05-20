@@ -40,7 +40,7 @@ namespace MVCProjectCamp.Controllers
             ValidationResult result = categoryValidator.Validate(p);
             if (result.IsValid)
             {
-                ctm.CategoryAddBL(p);
+                ctm.Add(p);
                 return RedirectToAction("GetCategoryList");
             }
             else

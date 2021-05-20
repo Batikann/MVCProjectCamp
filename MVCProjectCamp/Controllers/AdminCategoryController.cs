@@ -14,6 +14,7 @@ namespace MVCProjectCamp.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager ctm = new CategoryManager(new EfCategoryDal());
+        CategoryValidator categoryValidator = new CategoryValidator();
         // GET: AdminCategory
         public ActionResult Index()
         {
@@ -29,11 +30,10 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category p)
         {
-            CategoryValidator categoryValidator = new CategoryValidator();
             ValidationResult result = categoryValidator.Validate(p);
             if (result.IsValid)
             {
-                ctm.CategoryAddBL(p);
+                ctm.Add(p);
                 return RedirectToAction("Index");
 
             }
@@ -50,7 +50,7 @@ namespace MVCProjectCamp.Controllers
         public ActionResult DeleteCategory(int id)
         {
             var categoryValue = ctm.GetById(id);
-            ctm.CategoryDelete(categoryValue);
+            ctm.Delete(categoryValue);
             return RedirectToAction("Index");
         }
 
@@ -63,9 +63,20 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult EditCategory(Category category)
         {
-            ctm.CategoryUpdate(category);
-
-            return RedirectToAction("Index");
+            ValidationResult result = categoryValidator.Validate(category);
+            if (result.IsValid)
+            {
+                ctm.Update(category);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View(category);
         }
     }
 }

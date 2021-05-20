@@ -27,17 +27,17 @@ namespace BusinessLayer.Concrete
             return _writerDal.List();
         }
 
-        public void WriterAdd(Writer writer)
+        public void Add(Writer writer)
         {
             _writerDal.Insert(writer);
         }
 
-        public void WriterDelete(Writer writer)
+        public void Delete(Writer writer)
         {
             _writerDal.Delete(writer);
         }
 
-        public void WriterUpdate(Writer writer)
+        public void Update(Writer writer)
         {
             _writerDal.Update(writer);
         }

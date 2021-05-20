@@ -1,0 +1,32 @@
+﻿@model List<EntityLayer.DTOs.HeadingDetailDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Başlık İsmi</th>
+        <th>Başlık Kategorisi</th>
+        <th>Başlık Tarihi</th>
+        <th>Başlık Yazarı</th>
+       
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.HeadingID</td>
+            <td>@item.HeadingName</td>
+            <td>@item.CategoryName</td>
+            <td>@item.HeadingDate</td>
+            <td>@item.WriterName @item.WriterSurname</td>
+        </tr>
+    }
+</table>
+
+<div style="padding:10px">
+    <a href="/AdminHeading/AddHeading/" class="btn btn-primary">Başlık Ekle</a>
+</div>
+
+

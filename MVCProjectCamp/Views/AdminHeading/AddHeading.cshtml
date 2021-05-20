@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "AddHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddHeading", "AdminHeading", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Başlık Tarihi")
+                @Html.TextBoxFor(model => model.HeadingDate, new { @class = "form-control", @Value = @DateTime.Now.ToShortDateString() })
+                @Html.ValidationMessageFor(model => model.HeadingDate, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Başlık Adı")
+                @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.HeadingName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Kategori")
+                @Html.DropDownListFor(x =>x.CategoryID,(List<SelectListItem >)ViewBag.vlc,new { @class="form-control"})
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                @Html.Label("Yazar")
+                @Html.DropDownListFor(x =>x.WriterID,(List<SelectListItem>)ViewBag.vlw,new { @class="form-control"})
+            </div>
+
+            <div class="form-group" style="padding:10px">
+                <button type="submit" class="btn btn-success">Başlık Oluştur</button>
+            </div>
+        </div>
+    </div>
+
+}
+
