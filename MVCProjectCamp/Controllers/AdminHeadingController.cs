@@ -16,7 +16,7 @@ namespace MVCProjectCamp.Controllers
         WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult Index()
         {
-            var headingValues = hm.GetHeadingDetails();
+            var headingValues = hm.GetList();
             return View(headingValues);
         }
 

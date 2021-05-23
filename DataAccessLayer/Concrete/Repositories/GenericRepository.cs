@@ -14,7 +14,12 @@ namespace DataAccessLayer.Concrete.Repositories
         where TEntity : class, IEntity, new()
         where TContext:DbContext,new()
     {
-          
+        TContext context = new TContext();
+        DbSet<TEntity> _object;
+        public GenericRepository()
+        {
+            _object = context.Set<TEntity>();
+        }
         public void Delete(TEntity t)
         {
             using (TContext context = new TContext())
@@ -52,6 +57,11 @@ namespace DataAccessLayer.Concrete.Repositories
                     : context.Set<TEntity>().Where(filter).ToList();
             }
         }
+        public List<TEntity> GetAll()
+        {
+            return _object.ToList();
+        }
+
 
         public void Update(TEntity t)
         {
@@ -62,6 +72,11 @@ namespace DataAccessLayer.Concrete.Repositories
                 context.SaveChanges();
             }
 
+        }
+
+        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
+        {
+            return _object.Where(filter).ToList();
         }
     }
 }

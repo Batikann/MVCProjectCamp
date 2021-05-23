@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.DTOs
 {
-    public class HeadingDetailDto:IDto
+    public class ContentDetailDto:IDto
     {
         public int HeadingID { get; set; }
         public string HeadingName { get; set; }
-        public DateTime HeadingDate { get; set; }
-        public string CategoryName { get; set; }
         public string WriterName { get; set; }
         public string WriterSurname { get; set; }
-        public string WriterImage { get; set; }
+        public string ContentValue { get; set; }
+        public DateTime ContentDate { get; set; }
     }
 }

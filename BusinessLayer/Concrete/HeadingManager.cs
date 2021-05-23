@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetList()
         {
-            return _headingDal.List();
+            return _headingDal.GetAll();
         }
 
         public void Update(Heading entity)

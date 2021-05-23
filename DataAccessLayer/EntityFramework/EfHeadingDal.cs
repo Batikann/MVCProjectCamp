@@ -21,7 +21,7 @@ namespace DataAccessLayer.EntityFramework
                              join c in context.Categories on h.CategoryID equals c.CategoryID
                              join w in context.Writers on h.WriterID equals w.WriterID
                              select new HeadingDetailDto
-                             { HeadingID = h.HeadingID, CategoryName = c.CategoryName, HeadingDate = h.HeadingDate, HeadingName = h.HeadingName, WriterName = w.WriterName,WriterSurname=w.WriterSurName };
+                             { HeadingID = h.HeadingID, CategoryName = c.CategoryName, HeadingDate = h.HeadingDate, HeadingName = h.HeadingName, WriterName = w.WriterName,WriterSurname=w.WriterSurName,WriterImage=w.WriterImage };
 
                 return result.ToList();
             }
