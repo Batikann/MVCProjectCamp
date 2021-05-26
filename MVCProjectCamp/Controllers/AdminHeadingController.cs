@@ -37,8 +37,8 @@ namespace MVCProjectCamp.Controllers
 
                                                 select new SelectListItem
                                                 {
-                                                    Text=x.WriterName + " " + x.WriterSurName,
-                                                    Value=x.WriterID.ToString()
+                                                    Text = x.WriterName + " " + x.WriterSurName,
+                                                    Value = x.WriterID.ToString()
                                                 }
                                              ).ToList();
 
@@ -51,6 +51,37 @@ namespace MVCProjectCamp.Controllers
         public ActionResult AddHeading(Heading heading)
         {
             hm.Add(heading);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> valueCategory = (from x in cm.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }
+                                           ).ToList();
+            ViewBag.vlc = valueCategory;
+
+            var headingValue = hm.GetById(id);
+            return View(headingValue);
+        }
+
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+            hm.Update(heading);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var result = hm.GetById(id);
+            hm.Delete(result);
             return RedirectToAction("Index");
         }
     }

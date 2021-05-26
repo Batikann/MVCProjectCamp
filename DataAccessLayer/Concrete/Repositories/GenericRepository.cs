@@ -33,7 +33,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
-            using (TContext context=new TContext())
+            using (TContext context = new TContext())
             {
                 return context.Set<TEntity>().SingleOrDefault(filter);
             }
@@ -77,6 +77,11 @@ namespace DataAccessLayer.Concrete.Repositories
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
         {
             return _object.Where(filter).ToList();
+        }
+
+        public TEntity GetById(Expression<Func<TEntity, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
         }
     }
 }

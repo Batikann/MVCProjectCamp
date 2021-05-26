@@ -1,7 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
-using EntityLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,46 +9,38 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class ContentManager : IContentService
+    public class AboutManager : IAboutService
     {
-        IContentDal _contentDal;
+        IAboutDal _aboutDal;
 
-        public ContentManager(IContentDal contentDal)
+        public AboutManager(IAboutDal aboutDal)
         {
-            _contentDal = contentDal;
+            _aboutDal = aboutDal;
         }
 
-        public void Add(Content entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Content entity)
+        public void Add(About entity)
         {
             throw new NotImplementedException();
         }
 
-        public Content GetById(int id)
+        public void Delete(About entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Content> GetList()
+        public About GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Content> GetListByHeadingId(int id)
-        {
-            return _contentDal.GetAll(c => c.HeadingID == id);
-
-        }
-
-        public void Update(Content entity)
+        public List<About> GetList()
         {
             throw new NotImplementedException();
         }
 
-        
+        public void Update(About entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

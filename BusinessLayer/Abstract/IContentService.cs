@@ -10,6 +10,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IContentService:IServiceBase<Content>
     {
-        List<Content> GetListById(int id);
+        List<Content> GetListByHeadingId(int id);
     }
 }

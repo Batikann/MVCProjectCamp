@@ -4,7 +4,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@{string color = "";}
+@{string color = "";
+    string status = "";
+    string text = "";
+    string colorStatus = "";
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +44,11 @@
                             <th style="width: 20%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 15%">
                                 Oluşturan Yazar
+                            </th>
+                            <th style="width: 15%" class="text-center">
+                                Başlığın Durumu
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
@@ -53,22 +61,36 @@
                         @foreach (var item in Model)
                         {
 
-                            if (item.Category.CategoryName=="Yazılım")
+                            if (item.Category.CategoryName == "Yazılım")
                             {
                                 color = "badge badge-success";
                             }
-                            if (item.Category.CategoryName=="Tiyatro")
+                            if (item.Category.CategoryName == "Tiyatro")
                             {
                                 color = "badge badge-warning";
                             }
-                            if (item.Category.CategoryName=="Spor")
+                            if (item.Category.CategoryName == "Spor")
                             {
                                 color = "badge badge-danger";
                             }
-                            if (item.Category.CategoryName=="Şiir")
+                            if (item.Category.CategoryName == "Şiir")
                             {
                                 color = "badge badge-secondary";
                             }
+                            if (item.HeadingStatus == true)
+                            {
+                                status = "Pasif Yap";
+                                colorStatus = "badge badge-success";
+                                text = "Aktif";
+                            }
+                            if (item.HeadingStatus == false)
+                            {
+                                status = "Aktif Yap";
+
+                                colorStatus = "badge badge-danger";
+                                text = "Pasif";
+                            }
+
                             <tr>
                                 <td>
                                     @item.HeadingID
@@ -92,6 +114,9 @@
                                         </li>
                                     </ul>
                                 </td>
+                                <td class="text-center">
+                                    <span class="@colorStatus">@text</span>
+                                </td>
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -101,15 +126,15 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="/AdminHeading/EditHeading/@item.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm" href="/AdminHeading/DeleteHeading/@item.HeadingID">
                                         <i class="fas fa-trash">
                                         </i>
-                                        Sil
+                                        @status
                                     </a>
                                 </td>
                             </tr>

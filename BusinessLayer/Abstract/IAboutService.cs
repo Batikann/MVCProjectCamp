@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BusinessLayer.Abstract
 {
-    public interface IAboutDal:IRepository<About>
+    public interface IAboutService:IServiceBase<About>
     {
     }
 }
