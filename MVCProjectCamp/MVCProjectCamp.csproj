@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminAboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminContactController.cs" />
     <Compile Include="Controllers\AdminHeadingController.cs" />
     <Compile Include="Controllers\AdminWriterController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -2527,6 +2528,10 @@
     <Content Include="Views\Content\ContentByHeading.cshtml" />
     <Content Include="Views\AdminHeading\EditHeading.cshtml" />
     <Content Include="Views\AdminAbout\Index.cshtml" />
+    <Content Include="Views\AdminAbout\AboutAddPartial.cshtml" />
+    <Content Include="Views\AdminContact\Index.cshtml" />
+    <Content Include="Views\AdminContact\GetContactDetails.cshtml" />
+    <Content Include="Views\AdminContact\InboxDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2577,7 +2582,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61795</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44381/</IISUrl>
+          <IISUrl>https://localhost:44382/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44382/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

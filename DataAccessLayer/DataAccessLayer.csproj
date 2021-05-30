@@ -51,9 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\ContactDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />

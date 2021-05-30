@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BusinessLayer.Abstract
 {
-    public interface ContactDal:IRepository<Contact>
+    public interface IContactService:IServiceBase<Contact>
     {
+
     }
 }
