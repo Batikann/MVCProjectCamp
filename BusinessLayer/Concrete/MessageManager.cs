@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public Message GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.GetById(x=>x.MessageID==id);
         }
 
         public List<Message> GetList()
@@ -38,14 +38,30 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
         }
 
+        public List<Message> GetListReadMessage()
+        {
+            return _messageDal.List(x => x.IsRead == true);
+        }
+
         public List<Message> GetListSenbox()
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.IsDraft==false);
+        }
+
+        public List<Message> GetDraftBox()
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.IsDraft == true);
+        }
+
+
+        public List<Message> GetListUnReadMessage()
+        {
+            return _messageDal.List(x=>x.IsRead==false);
         }
 
         public void Update(Message entity)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(entity);
         }
     }
 }

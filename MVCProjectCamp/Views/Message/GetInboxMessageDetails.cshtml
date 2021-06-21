@@ -1,0 +1,85 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewBag.Title = "GetInboxMessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{string color = "";
+    string message = "";
+    string icon = "";
+    string url = "";
+}
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Gelen Mesaj Detayları</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                @Html.Action("InboxDetails", "AdminContact")
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Gelen Mesaj Detayları</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
+                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            @if (Model.IsRead == false)
+                            {
+                                message = "Okundu Olarak İşaretle.";
+                                icon = "fas fa-times - circle";
+                                color = "btn btn-danger";
+                            }
+                            @if (Model.IsRead == true)
+                            {
+                                message = "Bu Mesaj Okundu Olarak İşaretlenmiştir.";
+                                icon = "fas fa-check - circle";
+                                color = "btn btn-success";
+                            }
+                            <div class="mailbox-read-info">
+                                <h5>Konu:@Model.Subject</h5>
+                                <h6>
+                                    Kimden: @Model.SenderMail
+                                    <span class="mailbox-read-time float-right"> @(((DateTime)Model.MessageDate).ToString("dd-MMM-yyyy"))</span>
+                                </h6>
+                            </div>
+                            <div class="mailbox-read-message">
+                                <p>
+                                    @Model.MessageContent
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="float-right">
+                                    <a href="/Message/IsRead/@Model.MessageID"  class="@color"><i class="@icon"></i> @message</a>
+                                </div>
+                                <button type="button" class="btn btn-default"><i class="fas fa-print"></i> İptal</button>
+                            </div>
+                            <!-- /.mailbox-read-message -->
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>
+

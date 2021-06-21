@@ -15,7 +15,8 @@ namespace MVCProjectCamp.Controllers
     {
         CategoryManager ctm = new CategoryManager(new EfCategoryDal());
         CategoryValidator categoryValidator = new CategoryValidator();
-        // GET: AdminCategory
+ 
+        [Authorize(Roles ="B")]
         public ActionResult Index()
         {
             var val = ctm.GetList();

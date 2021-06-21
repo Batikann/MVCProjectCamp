@@ -52,21 +52,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202105141820338_mig_writer_edit.cs" />
     <Compile Include="Migrations\202105141820338_mig_writer_edit.designer.cs">
@@ -99,6 +105,38 @@
     <Compile Include="Migrations\202106021742356_mig_add_message.cs" />
     <Compile Include="Migrations\202106021742356_mig_add_message.designer.cs">
       <DependentUpon>202106021742356_mig_add_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106052039203_mig_contact_date.cs" />
+    <Compile Include="Migrations\202106052039203_mig_contact_date.designer.cs">
+      <DependentUpon>202106052039203_mig_contact_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106180835562_mig_addimage_file.cs" />
+    <Compile Include="Migrations\202106180835562_mig_addimage_file.designer.cs">
+      <DependentUpon>202106180835562_mig_addimage_file.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106190912246_mig_aboutStatus_add.cs" />
+    <Compile Include="Migrations\202106190912246_mig_aboutStatus_add.designer.cs">
+      <DependentUpon>202106190912246_mig_aboutStatus_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106191223111_mig_isDraftAndisRead_Add.cs" />
+    <Compile Include="Migrations\202106191223111_mig_isDraftAndisRead_Add.designer.cs">
+      <DependentUpon>202106191223111_mig_isDraftAndisRead_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106192027250_mig_talentColumn_add.cs" />
+    <Compile Include="Migrations\202106192027250_mig_talentColumn_add.designer.cs">
+      <DependentUpon>202106192027250_mig_talentColumn_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106201748245_mig_admintablee_add.cs" />
+    <Compile Include="Migrations\202106201748245_mig_admintablee_add.designer.cs">
+      <DependentUpon>202106201748245_mig_admintablee_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106211359507_delete_admin_table.cs" />
+    <Compile Include="Migrations\202106211359507_delete_admin_table.designer.cs">
+      <DependentUpon>202106211359507_delete_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106211406301_admin_tableName_change.cs" />
+    <Compile Include="Migrations\202106211406301_admin_tableName_change.designer.cs">
+      <DependentUpon>202106211406301_admin_tableName_change.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +175,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106021742356_mig_add_message.resx">
       <DependentUpon>202106021742356_mig_add_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106052039203_mig_contact_date.resx">
+      <DependentUpon>202106052039203_mig_contact_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106180835562_mig_addimage_file.resx">
+      <DependentUpon>202106180835562_mig_addimage_file.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106190912246_mig_aboutStatus_add.resx">
+      <DependentUpon>202106190912246_mig_aboutStatus_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106191223111_mig_isDraftAndisRead_Add.resx">
+      <DependentUpon>202106191223111_mig_isDraftAndisRead_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106192027250_mig_talentColumn_add.resx">
+      <DependentUpon>202106192027250_mig_talentColumn_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201748245_mig_admintablee_add.resx">
+      <DependentUpon>202106201748245_mig_admintablee_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106211359507_delete_admin_table.resx">
+      <DependentUpon>202106211359507_delete_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106211406301_admin_tableName_change.resx">
+      <DependentUpon>202106211406301_admin_tableName_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

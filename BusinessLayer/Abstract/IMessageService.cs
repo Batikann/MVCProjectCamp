@@ -10,5 +10,8 @@ namespace BusinessLayer.Abstract
     public interface IMessageService:IServiceBase<Message>
     {
         List<Message> GetListSenbox();
+        List<Message> GetListReadMessage();
+        List<Message> GetListUnReadMessage();
+        List<Message> GetDraftBox();
     }
 }

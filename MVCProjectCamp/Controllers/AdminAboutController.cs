@@ -29,5 +29,12 @@ namespace MVCProjectCamp.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult DeleteAbout(int id)
+        {
+            var result = aboutManager.GetById(id);
+            aboutManager.Delete(result);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -3,8 +3,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@{string colorStatus = "";
+    string status = " ";
+    string text = "";
+    string iconStatus = "";
+}
 
-@Html.Action("AboutAddPartial","AdminAbout")
+@Html.Action("AboutAddPartial", "AdminAbout")
 
 <table class="table table-bordered table-striped">
     <tr>
@@ -15,10 +20,22 @@
 
     @foreach (var item in Model)
     {
+        if (item.AboutStatus == true)
+        {
+            status = "Pasif Yap";
+            colorStatus = "btn btn-success";
+            iconStatus = "fas fa-eye";
+        }
+        if (item.AboutStatus == false)
+        {
+            status = "Aktif Yap";
+            colorStatus = "btn btn-danger";
+            iconStatus = "fas fa-eye-slash";
+        }
         <tr>
             <th>@item.AboutID</th>
             <th>Başlık</th>
-            <th><a href="#" class="btn btn-warning">Pasif Yap</a></th>
+            <th><a href="/AdminAbout/DeleteAbout/@item.AboutID" class="@colorStatus">@status<i class="@iconStatus"></i></a></th>
         </tr>
     }
 

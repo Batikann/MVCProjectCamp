@@ -55,14 +55,18 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
     with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="/AdminCategory/Index" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Kategoriler
-                                </p>
-                            </a>
-                        </li>
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item">
+                                <a href="/AdminCategory/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Kategoriler
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
                         <li class="nav-item">
                             <a href="/AdminHeading/Index" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
@@ -125,15 +129,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Yazılar
-
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
@@ -142,7 +137,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="/Gallery/Index/" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Galeri
@@ -150,10 +145,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/kanban.html" class="nav-link">
+                            <a href="/ErrorPage/Page404" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
                                     Hata Sayfaları
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Talent/TalentList/" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    Yetenek Kartım
                                 </p>
                             </a>
                         </li>
@@ -173,6 +176,8 @@
                                 </p>
                             </a>
                         </li>
+
+
                     </ul>
                 </nav>
             </div>

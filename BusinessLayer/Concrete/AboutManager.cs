@@ -25,7 +25,16 @@ namespace BusinessLayer.Concrete
 
         public void Delete(About entity)
         {
-            _aboutDal.Delete(entity);
+            if (entity.AboutStatus==false)
+            {
+                entity.AboutStatus = true;
+                _aboutDal.Update(entity);
+            }
+            else
+            {
+                entity.AboutStatus =false;
+                _aboutDal.Update(entity);
+            }
         }
 
         public About GetById(int id)

@@ -103,7 +103,7 @@
                         </a>
                         <br />
                         <small>
-                            @Convert.ToDateTime(item.HeadingDate).ToString("dd/MM/yyyy")
+                            @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
                         </small>
                     </td>
                     <td>

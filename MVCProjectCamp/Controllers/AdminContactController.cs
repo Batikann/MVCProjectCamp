@@ -13,6 +13,7 @@ namespace MVCProjectCamp.Controllers
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());
         ContactValidator contectValidator = new ContactValidator();
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
         public ActionResult Index()
         {
             var contactValues = contactManager.GetList();
@@ -27,6 +28,21 @@ namespace MVCProjectCamp.Controllers
 
         public PartialViewResult InboxDetails()
         {
+            var contactMessage = contactManager.GetList().Count();
+            ViewBag.contactMessage = contactMessage;
+
+            var sendMail = messageManager.GetListSenbox().Count();
+            ViewBag.sendMail = sendMail;
+
+            var recevierMail = messageManager.GetList().Count();
+            ViewBag.recevierMail = recevierMail;
+
+            var draftMail = messageManager.GetDraftBox().Count();
+            ViewBag.draftMail = draftMail;
+
+            var unreadMessage = messageManager.GetList().Where(x => x.IsRead == false).Count();
+            ViewBag.unreadMessage = unreadMessage;
+
             return PartialView();
         }
     }
