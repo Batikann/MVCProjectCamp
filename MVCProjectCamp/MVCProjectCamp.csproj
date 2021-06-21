@@ -152,6 +152,12 @@
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3.Sertifika Görevleri\Admin Bilgileri Hashleme.PNG" />
+    <Content Include="3.Sertifika Görevleri\Gelen Kutusu Okundu Okunmadı Seçeneği part 2.PNG" />
+    <Content Include="3.Sertifika Görevleri\Gelen Kutusu Okundu Okunmadı Seçeneği part 3.PNG" />
+    <Content Include="3.Sertifika Görevleri\Gelen Kutusu Okundu Okunmadı Seçeneği.PNG" />
+    <Content Include="3.Sertifika Görevleri\Hakkımızda Aktif Pasif Yap.PNG" />
+    <Content Include="3.Sertifika Görevleri\Yetenek Kartı Sayfası.PNG" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
