@@ -11,5 +11,6 @@ namespace BusinessLayer.Abstract
     public interface IHeadingService:IServiceBase<Heading>
     {
         List<HeadingDetailDto> GetHeadingDetails();
+        List<Heading> GetListByWriter(int id);
     }
 }

@@ -1,0 +1,120 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "WriterProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | User Profile</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Template/adminpanel/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Template/adminpanel/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                        </ul>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane" id="settings">
+
+
+                                    @using (Html.BeginForm("WriterProfile", "Writer", FormMethod.Post))
+                                    {
+                                        @Html.HiddenFor(x=>x.WriterID)
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">İsim</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(x => x.WriterName, new { @class="form-control"})
+                                                @Html.ValidationMessageFor(x=>x.WriterName,null,new { @class="text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Soyisim</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(x => x.WriterSurName, new { @class="form-control"})
+                                                @Html.ValidationMessageFor(x=>x.WriterSurName,null,new { @class="text-danger"})
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(x => x.WriterUserName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.WriterSurName, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Profil Fotoğrafı</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.WriterImage, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Hakkımda</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.WriterAbout, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Meslek</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.WriterTitle, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button class="btn btn-success">Değişiklikleri Uygula</button>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Template/adminpanel/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Template/adminpanel/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Template/adminpanel/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Template/adminpanel/dist/js/demo.js"></script>
+</body>
+</html>
+
+

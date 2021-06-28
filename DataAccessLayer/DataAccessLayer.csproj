@@ -138,6 +138,14 @@
     <Compile Include="Migrations\202106211406301_admin_tableName_change.designer.cs">
       <DependentUpon>202106211406301_admin_tableName_change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106241352517_update_writertable.cs" />
+    <Compile Include="Migrations\202106241352517_update_writertable.designer.cs">
+      <DependentUpon>202106241352517_update_writertable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106241452081_add_userName_column.cs" />
+    <Compile Include="Migrations\202106241452081_add_userName_column.designer.cs">
+      <DependentUpon>202106241452081_add_userName_column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -199,6 +207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106211406301_admin_tableName_change.resx">
       <DependentUpon>202106211406301_admin_tableName_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106241352517_update_writertable.resx">
+      <DependentUpon>202106241352517_update_writertable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106241452081_add_userName_column.resx">
+      <DependentUpon>202106241452081_add_userName_column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

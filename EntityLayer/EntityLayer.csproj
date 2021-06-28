@@ -66,6 +66,7 @@
     <Compile Include="DTOs\ContentDetailDto.cs" />
     <Compile Include="DTOs\HeadingDetailDto.cs" />
     <Compile Include="DTOs\LoginDto.cs" />
+    <Compile Include="DTOs\WriterLoginDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

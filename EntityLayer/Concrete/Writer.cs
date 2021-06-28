@@ -13,6 +13,8 @@ namespace EntityLayer.Concrete
         [Key]
         public int WriterID { get; set; }
 
+        public string WriterUserName { get; set; }
+
         [StringLength(50)]
         public string WriterName { get; set; }
 
@@ -28,8 +30,8 @@ namespace EntityLayer.Concrete
         [StringLength(200)]
         public string WriterMail { get; set; }
 
-        [StringLength(200)]
-        public string WriterPassword { get; set; }
+        public byte[] WriterPasswordHash { get; set; }
+        public byte[] WriterPasswordSalt { get; set; }
 
         [StringLength(50)]
         public string WriterTitle { get; set; }

@@ -14,10 +14,12 @@ namespace BusinessLayer.Concrete
     public class AuthManager : IAuthService
     {
         IAdminService _adminService;
+        IWriterService _writerService;
 
-        public AuthManager(IAdminService adminService)
+        public AuthManager(IAdminService adminService,IWriterService writerService)
         {
             _adminService = adminService;
+            _writerService = writerService;
         }
 
         public bool AdminLogIn(LoginDto adminLogInDto)
@@ -53,5 +55,38 @@ namespace BusinessLayer.Concrete
             _adminService.Add(admin);
         }
 
+        public bool WriterLogin(WriterLoginDto writerLoginDto)
+        {
+            using (var crypto=new System.Security.Cryptography.HMACSHA512())
+            {
+                var writer = _writerService.GetList();
+                foreach (var item in writer)
+                {
+                    if (HashingHelper.WriterVerifyPasswordHash(writerLoginDto.WriterPassword,
+                        item.WriterPasswordHash,item.WriterPasswordSalt))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+
+            }
+        }
+
+        public void WriterRegister(string writerName, string writerSurname, string writerUserName, string writerMail, string writerPassword)
+        {
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.WriterCreatePasswordHash(writerPassword, out passwordHash, out passwordSalt);
+            var writer = new Writer
+            {
+                WriterName = writerName,
+                WriterSurName = writerSurname,
+                WriterUserName = writerUserName,
+                WriterMail = writerMail,
+                WriterPasswordHash = passwordHash,
+                WriterPasswordSalt = passwordSalt
+            };
+            _writerService.Add(writer);
+        }
     }
 }

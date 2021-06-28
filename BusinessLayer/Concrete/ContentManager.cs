@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public void Add(Content entity)
         {
-            throw new NotImplementedException();
+            _contentDal.Insert(entity);
         }
 
         public void Delete(Content entity)
@@ -36,13 +36,18 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetList()
         {
-            throw new NotImplementedException();
+            return _contentDal.GetAll();
         }
 
         public List<Content> GetListByHeadingId(int id)
         {
             return _contentDal.GetAll(c => c.HeadingID == id);
 
+        }
+
+        public List<Content> GetListByWriter(int id)
+        {
+            return _contentDal.GetAll(x => x.WriterID == id);
         }
 
         public void Update(Content entity)

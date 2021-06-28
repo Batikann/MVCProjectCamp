@@ -33,9 +33,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetById(x=>x.MessageID==id);
         }
 
-        public List<Message> GetList()
+        public List<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
+            return _messageDal.GetAll(x => x.ReceiverMail == p);
         }
 
         public List<Message> GetListReadMessage()
@@ -43,9 +43,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.IsRead == true);
         }
 
-        public List<Message> GetListSenbox()
+        public List<Message> GetListSenbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.IsDraft==false);
+            return _messageDal.GetAll(x => x.SenderMail == p && x.IsDraft==false);
         }
 
         public List<Message> GetDraftBox()
@@ -62,6 +62,11 @@ namespace BusinessLayer.Concrete
         public void Update(Message entity)
         {
             _messageDal.Update(entity);
+        }
+
+        public List<Message> GetList()
+        {
+            throw new NotImplementedException();
         }
     }
 }
