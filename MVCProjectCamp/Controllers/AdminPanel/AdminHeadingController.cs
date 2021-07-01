@@ -21,6 +21,13 @@ namespace MVCProjectCamp.Controllers
         }
 
 
+        public ActionResult HeadingReport()
+        {
+            var headingValues = hm.GetList();
+            return View(headingValues);
+        }
+
+
         public ActionResult AddHeading()
         {
             List<SelectListItem> valueCategory = (from x in cm.GetList()

@@ -54,7 +54,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         @if (User.IsInRole("A"))
                         {
                             <li class="nav-item">
@@ -67,6 +67,14 @@
                             </li>
                         }
 
+                        <li class="nav-item">
+                            <a href="/Content/GetAllContent/" class="nav-link">
+                                <i class="nav-icon fas fa-book-reader"></i>
+                                <p>
+                                    Yazılar
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="/AdminHeading/Index" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
@@ -121,6 +129,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/AdminHeading/HeadingReport/" class="nav-link">
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>
+                                    Raporlar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/AdminContact/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
@@ -129,7 +145,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a href="/Authorization/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     Yetkilendirmeler
@@ -141,14 +157,6 @@
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Galeri
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/ErrorPage/Page404" class="nav-link">
-                                <i class="nav-icon fas fa-columns"></i>
-                                <p>
-                                    Hata Sayfaları
                                 </p>
                             </a>
                         </li>

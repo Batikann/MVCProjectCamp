@@ -50,6 +50,11 @@ namespace BusinessLayer.Concrete
             return _contentDal.GetAll(x => x.WriterID == id);
         }
 
+        public List<Content> SearchText(string p)
+        {
+            return _contentDal.GetAll(x=>x.ContentValue.Contains(p));
+        }
+
         public void Update(Content entity)
         {
             throw new NotImplementedException();
