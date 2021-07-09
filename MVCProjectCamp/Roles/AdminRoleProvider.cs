@@ -52,7 +52,7 @@ namespace MVCProjectCamp.Roles
                     {
                         if (adminMailCrypto[i] == item.AdminMail[i])
                         {
-                            return new string[] { item.AdminRole };
+                            return new string[] { item.Role.RoleName };
                         }
                     }
                 }

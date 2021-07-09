@@ -51,5 +51,25 @@ namespace MVCProjectCamp.Controllers
             return View(talent);
         }
 
+        public ActionResult UpdateTalent(int id)
+        {
+            var result = talentManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateTalent(Talent talent)
+        {
+            talentManager.Update(talent);
+            return RedirectToAction("TalentList");
+        }
+
+        public ActionResult DeleteTalent(int id)
+        {
+            var result = talentManager.GetById(id);
+            talentManager.Delete(result);
+            return RedirectToAction("TalentList");
+        }
+
     }
 }

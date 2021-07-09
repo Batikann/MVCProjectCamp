@@ -142,6 +142,7 @@
     <Compile Include="Controllers\AdminPanel\AdminHeadingController.cs" />
     <Compile Include="Controllers\AdminPanel\AdminWriterController.cs" />
     <Compile Include="Controllers\AdminPanel\AuthorizationController.cs" />
+    <Compile Include="Controllers\AdminPanel\CalenderController.cs" />
     <Compile Include="Controllers\AdminPanel\CategoryController.cs" />
     <Compile Include="Controllers\AdminPanel\ContentController.cs" />
     <Compile Include="Controllers\AdminPanel\ErrorPageController.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Calender.cs" />
     <Compile Include="Models\CaptchaResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\AdminRoleProvider.cs" />
@@ -3673,9 +3675,15 @@
     <Content Include="Views\Content\GetAllContent.cshtml" />
     <Content Include="Views\AdminHeading\HeadingReport.cshtml" />
     <Content Include="Views\Authorization\Index.cshtml" />
+    <Content Include="Views\Authorization\AddAdmin.cshtml" />
+    <Content Include="Views\Authorization\UpdateAdminRole.cshtml" />
+    <Content Include="Views\Calender\Index.cshtml" />
+    <Content Include="Views\Talent\UpdateTalent.cshtml" />
+    <Content Include="Views\Gallery\AddImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Gallery\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

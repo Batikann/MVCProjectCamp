@@ -24,8 +24,8 @@
             <th>@item.TalentID</th>
             <td>@item.TalentName</td>
             <td>%@item.Range</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Talent/DeleteTalent/@item.TalentID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Talent/UpdateTalent/@item.TalentID" class="btn btn-warning">Güncelle</a></td>
         </tr>
     }
 </table>

@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVCProjectCamp.Controllers
 {
@@ -24,8 +25,23 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult Register(LoginDto loginDto)
         {
-            authService.AdminRegister(loginDto.AdminUserName, loginDto.AdminMail, loginDto.AdminPassword);
-            return RedirectToAction("Index", "AdminCategory");
+     
+
+            if (authService.AdminLogIn(loginDto))
+            {
+                FormsAuthentication.SetAuthCookie(loginDto.AdminMail, false);
+                Session["AdminMail"] = loginDto.AdminMail;
+                var session = Session["AdminMail"];
+                //var adminIdInfo = context.Admins.Where(x => x.AdminMail == session).Select(y => y.AdminId).FirstOrDefault();
+                //ViewBag.logIn = adminIdInfo;
+                ViewBag.a = session;
+                return RedirectToAction("Index", "AdminCategory");
+            }
+            else
+            {
+                ViewData["ErrorMessage"] = "Kullanıcı adı veya Parola yanlış";
+                return View();
+            }
         }
     }
 }

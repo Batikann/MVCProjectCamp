@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
     <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfRoleDal.cs" />
     <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202105141820338_mig_writer_edit.cs" />
@@ -146,6 +148,14 @@
     <Compile Include="Migrations\202106241452081_add_userName_column.designer.cs">
       <DependentUpon>202106241452081_add_userName_column.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107090832137_mig_admintablecolumn.cs" />
+    <Compile Include="Migrations\202107090832137_mig_admintablecolumn.designer.cs">
+      <DependentUpon>202107090832137_mig_admintablecolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107090846455_mig_adminStatus.cs" />
+    <Compile Include="Migrations\202107090846455_mig_adminStatus.designer.cs">
+      <DependentUpon>202107090846455_mig_adminStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -213,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106241452081_add_userName_column.resx">
       <DependentUpon>202106241452081_add_userName_column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107090832137_mig_admintablecolumn.resx">
+      <DependentUpon>202107090832137_mig_admintablecolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107090846455_mig_adminStatus.resx">
+      <DependentUpon>202107090846455_mig_adminStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,23 +4,72 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{
+    string color = "";
+    string buttonTyp = "";
+    string status = "";
+}
 <br />
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>Admin Id</th>
-        <th>Kullanıcı Adı</th>
-        <th>Admin Rolü</th>
-        <th>Yetkisiz Bırak</th>
-        <th>Yetkisini Değiştir</th>
-    </tr>
 
+<table class="table table-bordered">
+    <tr>
+        <th style="width: 1%; text-align: center">#</th>
+        <th style="width: 5%; text-align: center">Kullanıcı Adı</th>
+        <th style="width: 1%; text-align: center">Yetki</th>
+        <th style="width: 5%; text-align: center">Yetki Detay</th>
+        <th style="width: 2%; text-align: center">Durumu</th>
+        <th style="width: 3%; text-align: center">Aktof / Pasif</th>
+        <th style="width: 3%; text-align: center">Yetki Degiştir</th>
+    </tr>
     @foreach (var item in Model)
     {
+        if (item.AdminStatus == true)
+        {
+            status = "Pasif Yap";
+            buttonTyp = "btn btn-danger";
+        }
+        if (item.AdminStatus == false)
+        {
+            status = "Aktif Yap";
+            buttonTyp = "btn btn-success";
+        }
+
         <tr>
-            <td>@item.AdminID</td>
-            <td>@item.AdminUserName</td>
-            <td>@item.AdminRole</td>
+            <th>@item.AdminID</th>
+            <td style="text-align: center">@item.AdminUserName</td>
+            <td style="text-align: center;background-color: gold"><b>@item.Role.RoleName</b></td>
+            <td style="text-align: center">@item.Role.Description</td>
+            <td style="text-align: center">
+                @{ if (item.AdminStatus)
+                    {
+                        <b style="color: green "> Aktif</b> }
+                    else
+                    {
+                        <b style="color: red">Pasif</b> }
+                }
+            </td>
+
+            <td style="text-align: center">
+                <a href="/Authorization/DeleteAdmin/@item.AdminID" class="@buttonTyp">@status</a>
+
+                @*<a class="btn btn-primary" href="/Authorization/AuthorizationPartial/@item.AdminId">
+                        <i class="fas fa-folder"></i>
+                        Yetkisini Değiştir
+                    </a>*@
+
+                @*<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+                        Yetkisini Değiştir
+                    </button>*@
+
+                @*@Html.Action("AuthorizationPartial", "Authorization")*@
+            </td>
+            <td style="text-align: center">
+                <a href="/Authorization/UpdateAdminRole/@item.AdminID" class="btn btn-primary">Yetkisini Değiştir</a>
+            </td>
+            @*<td><a href="/Authorization/UpdateRole/@item.AdminId" class="btn btn-warning">Yetkisini Değiştir</a></td>*@
+
         </tr>
     }
 </table>
+<a href="/Authorization/AddAdmin/" class="btn btn-info">Yeni Admin Tanımla</a>
 

@@ -25,17 +25,17 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Admin entity)
         {
-            _adminDal.Delete(entity);
+            _adminDal.Update(entity);
         }
 
         public Admin GetById(int id)
         {
-            return _adminDal.GetById(x => x.AdminID == id);
+            return _adminDal.Get(x => x.AdminID == id);
         }
 
         public List<Admin> GetList()
         {
-            return _adminDal.List();
+            return _adminDal.GetAll();
         }
 
         public void Update(Admin entity)

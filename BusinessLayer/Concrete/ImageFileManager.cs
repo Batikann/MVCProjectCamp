@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public void Add(ImageFile entity)
         {
-            throw new NotImplementedException();
+            _imageFileDal.Insert(entity);
         }
 
         public void Delete(ImageFile entity)

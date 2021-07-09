@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Talent
+@{
+    ViewBag.Title = "UpdateTalent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("UpdateTalent", "Talent", FormMethod.Post))
+        {
+            <div>
+                @Html.HiddenFor(x=>x.TalentID)
+                @Html.Label("Yetenek Adı")
+                @Html.TextBoxFor(x => x.TalentName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.TalentName)
+            </div>
+
+            <div style="padding-top:15px">
+                @Html.Label("Yetenek Yüzdesi(0-100 arasında)")
+                @Html.TextBoxFor(x => x.Range, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Range)
+            </div>
+
+            <div style="padding-top:15px">
+                <button type="submit" class="btn btn-warning">Güncelle</button>
+            </div>
+        }
+    </div>
+</div>
+

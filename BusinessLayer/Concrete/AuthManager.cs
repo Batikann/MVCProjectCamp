@@ -22,6 +22,18 @@ namespace BusinessLayer.Concrete
             _writerService = writerService;
         }
 
+        public AuthManager(IAdminService adminService)
+        {
+            _adminService = adminService;
+
+        }
+
+        public AuthManager(IWriterService writerService)
+        {
+            _writerService = writerService;
+        }
+
+
         public bool AdminLogIn(LoginDto adminLogInDto)
         {
             using (var crypto = new System.Security.Cryptography.HMACSHA512())
@@ -40,7 +52,7 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public void AdminRegister(string adminUserName, string adminMail, string password)
+        public void AdminRegister(string adminUserName, string adminMail, string password,int adminRole)
         {
             byte[] mailHash, passwordHash, passwordSalt;
             HashingHelper.AdminCreatePasswordHash(adminMail, password, out mailHash, out passwordHash, out passwordSalt);
@@ -50,7 +62,8 @@ namespace BusinessLayer.Concrete
                 AdminMail = mailHash,
                 AdminPasswordHash = passwordHash,
                 AdminPasswordSalt = passwordSalt,
-                AdminRole = "A"
+                RoleId=adminRole,
+                AdminStatus=false
             };
             _adminService.Add(admin);
         }
@@ -88,5 +101,6 @@ namespace BusinessLayer.Concrete
             };
             _writerService.Add(writer);
         }
+
     }
 }

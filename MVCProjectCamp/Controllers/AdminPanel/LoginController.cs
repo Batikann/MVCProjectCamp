@@ -33,7 +33,8 @@ namespace MVCProjectCamp.Controllers
             if (authService.AdminLogIn(loginDto))
             {
                 FormsAuthentication.SetAuthCookie(loginDto.AdminMail, false);
-                Session["AdminMail"] = loginDto.AdminMail;
+               var session= Session["AdminMail"] = loginDto.AdminMail;
+                ViewBag.a = session;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
